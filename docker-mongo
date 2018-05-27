@@ -1,0 +1,20 @@
+docker run --name mongo \
+-v /home/mongo/mongo-files/data:/data/db \
+-v /home/mongo/mongo-key:/opt/keyfile \
+--hostname="mongo1" \
+-p 27017:27017 \
+-d mongo:2.6.5 --smallfiles
+
+
+docker run \
+--name mongo \
+-v /home/mongo/mongo-files/data:/data/db \
+-v /home/mongo/mongo-key:/opt/keyfile \
+--hostname="mongo1" \
+--add-host mongo1:192.168.2.6 \
+--add-host mongo2:192.168.2.7 \
+--add-host mongo3:192.168.2.8 \
+-p 27017:27017 -d mongo:2.6.5 \
+--smallfiles \
+--keyFile /opt/keyfile/mongodb-keyfile \
+--replSet "rs0"
