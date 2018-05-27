@@ -1,0 +1,12 @@
+docker run -d --name galera \
+  -e WSREP_NODE_ADDRESS=192.168.2.9 \
+  -e WSREP_CLUSTER_ADDRESS=gcomm://192.168.2.9:4567,192.168.2.10:4567,192.168.2.11:4567 \
+  -e MYSQL_ROOT_PASSWORD=password \
+  -p 3306:3306 \
+  -p 4567:4567/udp \
+  -p 4567-4568:4567-4568 \
+  -p 4444:4444 \
+  -v /mnt/data/galera.service/mysql:/var/lib/mysql:Z \
+  panubo/mariadb-galera \
+    mysqld \
+    --wsrep-new-cluster
