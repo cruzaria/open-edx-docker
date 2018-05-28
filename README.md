@@ -15,9 +15,9 @@ Build and run:
     docker-compose build # go get a coffee
     docker-compose up
 
-The LMS will be reachable at [http://openedxdemo.overhang.io](http://openedxdemo.overhang.io).
+The LMS will be reachable at [http://online.academy4cloud.com/](http://online.academy4cloud.com/).
 
-The CMS will be reachable at [http://studio.openedxdemo.overhang.io](http://studio.openedxdemo.overhang.io).
+The CMS will be reachable at [http://studio.academy4cloud.com/](http://studio.academy4cloud.com/).
 
 For local development, you should point to http://localhost:8800.
 
@@ -45,10 +45,16 @@ Open a python shell in the lms or the cms:
     make lms-shell
     make cms-shell
 
-## TODO
+## Analytics
 
-- Make sure that secret keys are not shared with the entire world
-- Don't duplicate args between containers
-- Add arguments to set domain name, platform name, etc.
-- Add documentation on host Nginx
-- Better readme
+- go to folders edx-analytics-***
+
+Build and run in each folders:
+
+    docker-compose build
+    docker-compose up
+ 
+ ## DBs
+ 
+    run docker-maria
+    run docker-mongo
